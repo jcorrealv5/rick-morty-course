@@ -1,6 +1,5 @@
 {
-  "homepage":"https://jcorrealv5.github.io/rick-morty-course",
-  
+  "homepage": "https://github.com/jcorrealv5/rick-morty-course",
   "name": "api-rick-morty",
   "version": "0.1.0",
   "private": true,
@@ -16,7 +15,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build https://$GH_TOKEN@github/jcorrealv5/rick-morty-course"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
