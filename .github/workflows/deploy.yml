@@ -12,15 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{matrix.node-version}}
-      - uses: actions/setup-node@v2
-      with:
-        node-version: ${{matrix.node-version}}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{matrix.node-version}}
       - name: Install packages
         run: npm install
-        name: Build page
+      - name: Build page
         run: npm run build
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3      
         with:
-            GH_TOKEN: ${{ secrets.GH_TOKEN}}
-            publish_dir: ./build
+          GH_TOKEN: ${{ secrets.GH_TOKEN}}
+          publish_dir: ./build
