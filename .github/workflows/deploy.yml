@@ -11,17 +11,17 @@ jobs:
         node-version: ["12.x"]
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v1
+      - name: Use Node-js ${{matrix.node-version}}
+        uses: actions/setup-node@v3
         with:
           node-version: ${{matrix.node-version}}
       - name: Install packages
         run: npm install
-      - name: registry github user
-        run: /
-          git config --global user.email <jhonfresan@hotmail.com>
-          git config --global user.name <jcorrealv5>
-      - name: deploy the app
-        run: npm run deploy
-        env:  
+      - name: Build page
+        run: npm run build
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:             
             GH_TOKEN: ${{ secrets.GH_TOKEN}}
+            publish_dir: ./build
 
